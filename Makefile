@@ -6,11 +6,11 @@
 #    By: tbatteux <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 10:33:33 by tbatteux          #+#    #+#              #
-#    Updated: 2023/04/20 10:54:18 by tbatteux         ###   ########.fr        #
+#    Updated: 2023/04/20 16:31:31 by tbatteux         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FICHIERS_C = 
+FICHIERS_C = ft_putchar_fd.c ft_putnbr_fd.c ft_putstr_fd.c check_format.c 
 
 FICHIERS_O = ${FICHIERS_C:.c=.o}
 
@@ -20,6 +20,7 @@ all: ${NAME}
 
 ${NAME}: ${FICHIERS_O}
 	ar rc ${NAME} ${FICHIERS_O}
+	ranlib ${NAME}
 
 ${FICHIERS_O}: ${FICHIERS_C}
 	gcc -c ${FICHIERS_C} -Wall -Wextra -Werror
@@ -28,6 +29,6 @@ clean:
 	rm -f ${FICHIERS_O}
 
 fclean: clean
-	rm -f ${Name}
+	rm -f ${NAME}
 
 re: fclean all
