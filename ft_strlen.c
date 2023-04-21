@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbatteux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 10:28:33 by tbatteux          #+#    #+#             */
-/*   Updated: 2023/04/14 10:33:27 by tbatteux         ###   ########.fr       */
+/*   Created: 2023/04/11 13:17:29 by tbatteux          #+#    #+#             */
+/*   Updated: 2023/04/14 10:03:52 by tbatteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+size_t	ft_strlen(const char *s)
 {
 	int	i;
 
 	i = 0;
 	while (s[i])
-		write(fd, &s[i++], 1);
+		i++;
+	return (i);
 }
 /*
 int	main()
 {
-	ft_putstr_fd("test", 1);
+	printf("%d\n", ft_strlen("test"));
 	return (0);
 }*/

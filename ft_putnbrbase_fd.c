@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbatteux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/20 10:55:28 by tbatteux          #+#    #+#             */
-/*   Updated: 2023/04/20 17:12:57 by tbatteux         ###   ########.fr       */
+/*   Created: 2023/04/14 10:40:31 by tbatteux          #+#    #+#             */
+/*   Updated: 2023/04/14 10:50:47 by tbatteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <stddef.h>
-# include <stdarg.h>
+void	ft_putnbrbase_fd(int n, int fd, char *base)
+{
+	unsigned int	nb;
 
-
-void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putstr_fd(char *s, int fd);
-int	check_format(char *s, va_list stk);
-
-#endif
+	nb = n;
+	if (nb < 16)
+		ft_putchar_fd(base[nb], fd);
+	if (nb >= 16)
+	{
+		ft_putnbrbase_fd(nb / 16, fd, base);
+		ft_putnbrbase_fd(nb % 16, fd, base);
+	}
+}
