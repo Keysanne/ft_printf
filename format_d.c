@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   format_d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbatteux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 10:28:33 by tbatteux          #+#    #+#             */
-/*   Updated: 2023/04/24 16:08:22 by tbatteux         ###   ########.fr       */
+/*   Created: 2023/04/24 12:13:38 by tbatteux          #+#    #+#             */
+/*   Updated: 2023/04/24 16:04:37 by tbatteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	format_d(int nb)
 {
-	int	i;
+	char	*str;
+	int		i;
 
-	i = 0;
-	while (s[i])
-		ft_putchar2_fd(s[i++], fd);
+	str = ft_itoa(nb);
+	ft_putnbr_fd(nb, 1);
+	i = ft_strlen(str);
+	free(str);
+	return (i);
 }
-/*
-int	main()
-{
-	ft_putstr_fd("test", 1);
-	return (0);
-}*/

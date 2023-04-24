@@ -6,7 +6,7 @@
 /*   By: tbatteux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 10:40:31 by tbatteux          #+#    #+#             */
-/*   Updated: 2023/04/14 10:50:47 by tbatteux         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:07:51 by tbatteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n > 9)
 		ft_putnbr_fd(n / 10, fd);
 	if (n > 9)
-		ft_putchar_fd(n % 10 + '0', fd);
+		ft_putchar2_fd(n % 10 + '0', fd);
 	else
-		ft_putchar_fd(n + '0', fd);
+		ft_putchar2_fd(n + '0', fd);
 }
 /*
 int	main()

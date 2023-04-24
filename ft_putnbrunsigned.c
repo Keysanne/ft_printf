@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbrunsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbatteux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 10:28:33 by tbatteux          #+#    #+#             */
-/*   Updated: 2023/04/24 16:08:22 by tbatteux         ###   ########.fr       */
+/*   Created: 2023/04/24 13:49:48 by tbatteux          #+#    #+#             */
+/*   Updated: 2023/04/24 16:08:10 by tbatteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putnbrunsigned(unsigned int nb, int *i)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		ft_putchar2_fd(s[i++], fd);
+	if (nb < 10)
+	{
+		ft_putchar2_fd(nb + '0', 1);
+		(*i)++;
+	}
+	if (nb >= 10)
+	{
+		ft_putnbrunsigned(nb / 10, i);
+		ft_putnbrunsigned(nb % 10, i);
+	}
 }
-/*
-int	main()
-{
-	ft_putstr_fd("test", 1);
-	return (0);
-}*/

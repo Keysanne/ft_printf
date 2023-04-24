@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbradress.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbatteux <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/14 10:28:33 by tbatteux          #+#    #+#             */
-/*   Updated: 2023/04/24 16:08:22 by tbatteux         ###   ########.fr       */
+/*   Created: 2023/04/24 15:48:59 by tbatteux          #+#    #+#             */
+/*   Updated: 2023/04/24 16:07:18 by tbatteux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putnbradress(unsigned long n, char *base, int *i)
 {
-	int	i;
+	unsigned long	nb;
 
-	i = 0;
-	while (s[i])
-		ft_putchar2_fd(s[i++], fd);
+	nb = n;
+	if (nb < 16)
+	{
+		ft_putchar2_fd(base[nb], 1);
+		(*i)++;
+	}
+	if (nb >= 16)
+	{
+		ft_putnbradress(nb / 16, base, i);
+		ft_putnbradress(nb % 16, base, i);
+	}
 }
-/*
-int	main()
-{
-	ft_putstr_fd("test", 1);
-	return (0);
-}*/
